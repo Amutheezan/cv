@@ -131,7 +131,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(30, 50, 100, 0.30);
+  background: rgba(30, 50, 100, 0.30) !important;
   backdrop-filter: blur(32px) saturate(200%);
   -webkit-backdrop-filter: blur(32px) saturate(200%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.18);
@@ -141,18 +141,21 @@ a {
   animation: intro 0.3s both;
   animation-delay: 0.15s;
   border-radius: 0 0 20px 20px;
-  margin: 12px;
+  margin: 12px auto !important;
   padding: 1.2em 2em !important;
   text-align: center !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  justify-content: center !important;
+  display: block !important;
+  max-width: 100% !important;
+  width: 100% !important;
 
   h1, h2, h3 {
     text-align: center !important;
     margin: 0.3em 0 !important;
     font-size: 1.1em !important;
+  }
+
+  .contact {
+    text-align: center !important;
   }
 }
 
@@ -242,6 +245,28 @@ a {
   p, span, a {
     font-size: 0.9em;
   }
+}
+
+// ==========================================
+// ABOUT SECTION STYLING
+// ==========================================
+
+#about-me,
+.about-section,
+[id*="about"] {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(230, 240, 255, 0.65) 100%) !important;
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  border-radius: 20px !important;
+  box-shadow:
+    0 8px 40px rgba(31, 38, 135, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
+  padding: 2em !important;
+  margin: 2em auto !important;
+  animation: intro 0.3s both;
+  animation-delay: 0.45s;
 }
 
 // ==========================================
