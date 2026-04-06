@@ -5,8 +5,7 @@
 @import 'modern-resume-theme';
 
 // ==========================================
-// Match amutheezan.github.io formatting
-// + Liquid glass effects
+// Match amutheezan.github.io liquid glass design
 // ==========================================
 
 // Import Inter font (matching main site)
@@ -15,26 +14,48 @@
 // Color palette from amutheezan.github.io
 $site-blue: #2563eb;
 $site-bg: #f1f5f9;
-$site-dark-gray: #475569;
-$site-border: #e2e8f0;
+$site-dark-gray: #3d4144;
+$text-color: #475569;
 
-// Liquid glass effect variables
-$glass-bg: rgba(255, 255, 255, 0.65);
-$glass-border: rgba(255, 255, 255, 0.35);
-$glass-shadow: 0 8px 32px rgba(37, 99, 235, 0.08);
+// ==========================================
+// ANIMATIONS (matching main site)
+// ==========================================
 
-* {
-  font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+@-webkit-keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
+
+@keyframes intro {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// ==========================================
+// BASE STYLES
+// ==========================================
 
 html, body {
   background-color: $site-bg;
-  color: $site-dark-gray;
+  background-image: linear-gradient(135deg, #f1f5f9 0%, #e8f0f7 100%);
+  min-height: 100vh;
 }
 
 body {
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  background: $site-bg;
+  color: $text-color;
+}
+
+* {
+  font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -43,84 +64,170 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2 {
-  color: $site-blue;
-  border-bottom: 2px solid rgba(37, 99, 235, 0.15);
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid #ddd;
 }
 
 a {
   color: $site-blue;
+  text-decoration: none;
 
   &:hover, &:active, &:focus {
-    color: darken($site-blue, 12%);
+    color: darken($site-blue, 15%);
   }
 }
 
-// Liquid glass on header container
+// ==========================================
+// HEADER LIQUID GLASS (Masthead style)
+// ==========================================
+
 .header-container {
-  background: $glass-bg;
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid $glass-border;
-  box-shadow: $glass-shadow;
-  border-radius: 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(30, 50, 100, 0.30);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 2px 16px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  animation: intro 0.3s both;
+  animation-delay: 0.15s;
 }
 
-// Liquid glass on content sections/cards
+.header-right,
+.header-left {
+  background: transparent;
+}
+
+.profile-img {
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+// ==========================================
+// CONTENT SECTIONS LIQUID GLASS
+// ==========================================
+
 .layout {
-  background: $glass-bg;
-  backdrop-filter: blur(16px) saturate(160%);
-  -webkit-backdrop-filter: blur(16px) saturate(160%);
-  border: 1px solid $glass-border;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(37, 99, 235, 0.06);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 40px rgba(31, 38, 135, 0.12),
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-}
+  animation: intro 0.3s both;
 
-// Profile image glass effect
-.profile-img {
-  border: 3px solid rgba(37, 99, 235, 0.25);
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12);
-}
+  &:nth-child(1) {
+    animation-delay: 0.35s;
+  }
 
-// Contact icons
-.contact a {
-  color: $site-blue;
-}
+  &:nth-child(2) {
+    animation-delay: 0.45s;
+  }
 
-// Link styling in list items
-.layout-left a, .layout-right a {
-  color: $site-blue;
-
-  &:hover {
-    color: darken($site-blue, 12%);
+  &:nth-child(3) {
+    animation-delay: 0.55s;
   }
 }
 
-// Page content wrapper glass effect
-.page-content {
-  background-color: transparent;
+.layout-left,
+.layout-right,
+.layout-top,
+.layout-top-right,
+.layout-top-middle {
+  background: transparent;
 }
 
-// Footer glass effect
+// ==========================================
+// FOOTER LIQUID GLASS
+// ==========================================
+
 .footer-container {
-  background: $glass-bg;
-  backdrop-filter: blur(16px) saturate(150%);
-  -webkit-backdrop-filter: blur(16px) saturate(150%);
-  border-top: 1px solid $glass-border;
-  box-shadow: 0 -4px 16px rgba(37, 99, 235, 0.04);
+  background: rgba(30, 50, 100, 0.20);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 -2px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-// Print styles - remove glass effects for better printing
+// ==========================================
+// LIST AND TEXT STYLING
+// ==========================================
+
+.list-container {
+  background: transparent;
+}
+
+.border-weak {
+  border-color: rgba(0, 0, 0, 0.06);
+}
+
+// ==========================================
+// DETAILS/CONTENT STYLING
+// ==========================================
+
+.details {
+  color: $text-color;
+
+  a {
+    color: $site-blue;
+  }
+}
+
+// ==========================================
+// CONTACT SECTION
+// ==========================================
+
+.contact {
+  a {
+    color: $site-blue;
+
+    &:hover {
+      color: darken($site-blue, 15%);
+    }
+  }
+}
+
+// ==========================================
+// PRINT STYLES
+// ==========================================
+
 @media print {
-  .header-container,
-  .layout,
-  .footer-container {
-    background-color: white;
+  html, body {
+    background: white;
+  }
+
+  .header-container {
+    background: white;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
-    border: 1px solid $site-border;
+    border: none;
+    box-shadow: none;
+    position: static;
+  }
+
+  .layout {
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid #ddd;
+    box-shadow: none;
+  }
+
+  .footer-container {
+    background: white;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
     box-shadow: none;
   }
 }
