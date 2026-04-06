@@ -9,7 +9,6 @@ version: 2
 name: Amutheezan Sivagnanam
 title:
 email: amutheezan.siva@gmail.com
-website: www.amutheezan.com
 
 # Dark Mode (true/false/never)
 darkmode: false
@@ -202,4 +201,4 @@ sass:
   style: compressed
 
 plugins:
- - jekyll-seo-tag
+ - jekyll-seo-tag

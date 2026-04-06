@@ -75,27 +75,35 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.2em !important;
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1em !important;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #ddd;
+  margin: 0.8em 0 0.4em !important;
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 0.95em !important;
+  margin: 0.7em 0 0.3em !important;
 }
 
 h4, h5, h6 {
-  font-size: 0.9em;
+  font-size: 0.85em !important;
   font-weight: 600;
+  margin: 0.6em 0 0.3em !important;
 }
 
 p, li, ul, ol, dl {
-  font-size: 0.9em;
-  line-height: 1.6;
+  font-size: 0.85em !important;
+  line-height: 1.5;
+  margin: 0.4em 0 !important;
+}
+
+b, strong {
+  font-size: inherit;
 }
 
 a {
@@ -126,13 +134,30 @@ a {
   animation-delay: 0.15s;
   border-radius: 0 0 20px 20px;
   margin: 12px;
-  padding: 1.5em 2em !important;
-  text-align: center;
+  padding: 1.2em 2em !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  h1, h2, h3 {
+    text-align: center !important;
+    margin: 0.3em 0 !important;
+    font-size: 1.1em !important;
+  }
 }
 
-.header-right,
+.header-right {
+  background: transparent;
+  text-align: center !important;
+  width: 100% !important;
+}
+
 .header-left {
   background: transparent;
+  text-align: center !important;
+  width: 100% !important;
 }
 
 .profile-img {
@@ -145,7 +170,7 @@ a {
 // ==========================================
 
 .layout {
-  background: rgba(255, 255, 255, 0.68);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(230, 240, 255, 0.65) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -154,8 +179,8 @@ a {
     0 8px 40px rgba(31, 38, 135, 0.12),
     0 2px 8px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
-  padding: 1.5rem;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem;
   animation: intro 0.3s both;
 
   &:nth-child(1) {
