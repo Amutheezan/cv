@@ -51,7 +51,7 @@ html {
     radial-gradient(ellipse at 70% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
     linear-gradient(160deg, #dde8f8 0%, #eaeeff 40%, #f0e8ff 70%, #dde8f8 100%);
   background-attachment: fixed;
-  font-size: 16px;
+  font-size: 13px !important;
 }
 
 body {
@@ -75,35 +75,43 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.2em !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
 }
 
 h2 {
-  font-size: 1em !important;
-  padding-bottom: 0.5em;
+  font-size: 0.95em !important;
+  padding-bottom: 0.4em;
   border-bottom: 1px solid #ddd;
-  margin: 0.8em 0 0.4em !important;
+  margin: 0.6em 0 0.3em !important;
+  font-weight: 600 !important;
 }
 
 h3 {
-  font-size: 0.95em !important;
-  margin: 0.7em 0 0.3em !important;
+  font-size: 0.9em !important;
+  margin: 0.5em 0 0.2em !important;
+  font-weight: 600 !important;
 }
 
 h4, h5, h6 {
-  font-size: 0.85em !important;
-  font-weight: 600;
-  margin: 0.6em 0 0.3em !important;
+  font-size: 0.8em !important;
+  font-weight: 600 !important;
+  margin: 0.4em 0 0.2em !important;
 }
 
 p, li, ul, ol, dl {
-  font-size: 0.85em !important;
+  font-size: 1em !important;
   line-height: 1.5;
-  margin: 0.4em 0 !important;
+  margin: 0.3em 0 !important;
 }
 
 b, strong {
   font-size: inherit;
+  font-weight: 600;
+}
+
+a {
+  font-size: 0.85em !important;
 }
 
 a {
