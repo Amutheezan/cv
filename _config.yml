@@ -74,9 +74,9 @@ content:
           Supervisor: Dr. Aron Laszka
 
           Duties:
-          * Lead research projects funded by the U.S. Department of Energy (DOE) and the National Science Foundation (NSF), introducing cost- and energy-efficient solutions to tackle real-world problems
+          * Led research projects funded by the U.S. Department of Energy (DOE) and the National Science Foundation (NSF), introducing cost- and energy-efficient solutions to tackle real-world problems
           * Analyzed current state-of-the-art solutions and identified research gaps in existing solution approaches, leading to the development of innovative strategies for real-time decision-making
-          * Introduce novel problem formulations and mathematical models  to address these challenges, while ensuring inherent real-world constraints
+          * Introduced novel problem formulations and mathematical models to address these challenges, while ensuring inherent real-world constraints
           * Proposed artificial intelligence–based solutions to tackle real-world problems and successfully deployed them in relevant industries
           * Published research findings in AI conferences (ICML) and assisted in preparing slides for presenting results at DOE and NSF meetings
 
@@ -96,10 +96,10 @@ content:
 
           Duties:
           * Spearheaded research projects funded by the U.S. Department of Energy (DOE) and the National Science Foundation (NSF), leading to advancements in energy-efficient technologies
-          * Focus on understanding real-world decision-making problems and identified gaps in existing solution approaches, leading to the development of novel methodologies for enhanced decision-making 
-          * Propose novel problem formulations and mathematical models and formulated problem statements to effectively address the research limitations  in prior research efforts
+          * Focused on understanding real-world decision-making problems and identified gaps in existing solution approaches, leading to the development of novel methodologies for enhanced decision-making 
+          * Proposed novel problem formulations and mathematical models and formulated problem statements to effectively address the research limitations in prior research efforts
           * Applied artificial intelligence-based solution approaches to real-world problems and successfully deployed them in relevant industries
-          * Published research findings in AI conferences (AAAI, IJCAI) and assisted preparing slides for presenting results at DOE and NSF meetings
+          * Published research findings in AI conferences (AAAI, IJCAI) and assisted in preparing slides for presenting results at DOE and NSF meetings
 
           Research Projects:
           * Minimizing Energy Usage in Transit Agencies Operating with Mixed-Fleet of Vehicles (Published in **AAAI-21**)
@@ -123,7 +123,7 @@ content:
            * Developed application software using Object-Oriented principles, enhancing code maintainability and scalability
            * Implemented agile development practices, such as Scrum, to improve team collaboration and project delivery speed
            * Developed software solutions using Java, Python, and C++, improving system performance and reliability
-           * Introduce Unit Testing for Libraries in Post Trade C++ Code
+           * Introduced Unit Testing for Libraries in Post Trade C++ Code
            * Modified database structures and tested using BDD-based testing, ensuring data integrity and system functionality
            * Identified and replaced duplicated error codes with valid new error codes, improving system reliability
            * Developed a dynamic scripting object (DSO) for front-end end-to-end testing using Java, enhancing test coverage and efficiency
@@ -138,7 +138,7 @@ content:
       - title: WSO<sub>2</sub> Lanka (Pvt) Limited
         layout: left
         link: https://wso2.com/about/
-        sub_title: Software Engieering Intern
+        sub_title: Software Engineering Intern
         caption: Jul 2016 - Dec 2016
         description: |
           Team: **Data Analytics Team**
