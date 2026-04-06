@@ -43,10 +43,20 @@ $text-color: #475569;
 // BASE STYLES
 // ==========================================
 
-html, body {
-  background-color: $site-bg;
-  background-image: linear-gradient(135deg, #f1f5f9 0%, #e8f0f7 100%);
+html {
+  box-sizing: border-box;
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(37, 99, 235, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, rgba(124, 58, 237, 0.2) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
+    linear-gradient(160deg, #dde8f8 0%, #eaeeff 40%, #f0e8ff 70%, #dde8f8 100%);
+  background-attachment: fixed;
+  font-size: 16px;
+}
+
+body {
   min-height: 100vh;
+  margin: 0;
 }
 
 body {
@@ -94,6 +104,9 @@ a {
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
   animation: intro 0.3s both;
   animation-delay: 0.15s;
+  border-radius: 0 0 20px 20px;
+  margin: 12px;
+  padding: 1.5em 2em !important;
 }
 
 .header-right,
