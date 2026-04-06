@@ -71,11 +71,30 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: $site-dark-gray;
+  margin: 1em 0 0.5em;
+}
+
+h1 {
+  font-size: 1.75em;
 }
 
 h2 {
+  font-size: 1.35em;
   padding-bottom: 0.5em;
   border-bottom: 1px solid #ddd;
+}
+
+h3 {
+  font-size: 1.15em;
+}
+
+h4, h5, h6 {
+  font-size: 1em;
+}
+
+p, li, ul, ol, dl {
+  font-size: 0.95em;
+  line-height: 1.6;
 }
 
 a {
@@ -170,6 +189,11 @@ a {
   box-shadow:
     0 -2px 16px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  text-align: center;
+
+  p, span, a {
+    font-size: 0.9em;
+  }
 }
 
 // ==========================================
