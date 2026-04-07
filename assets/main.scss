@@ -5,169 +5,248 @@
 @import 'modern-resume-theme';
 
 // ==========================================
-// Match amutheezan.github.io liquid glass design
+// Inter font
 // ==========================================
 
-// Import Inter font (matching main site)
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-// Color palette from amutheezan.github.io
-$site-blue: #2563eb;
-$site-bg: #f1f5f9;
-$site-dark-gray: #3d4144;
-$text-color: #475569;
-
 // ==========================================
-// ANIMATIONS (matching main site)
+// CSS CUSTOM PROPERTIES — Light Mode
 // ==========================================
 
-@-webkit-keyframes intro {
-  0% {
-    opacity: 0;
+:root {
+  // Page background color stops
+  --bg-color-1:  rgba(37, 99, 235, 0.22);
+  --bg-color-2:  rgba(124, 58, 237, 0.20);
+  --bg-color-3:  rgba(37, 99, 235, 0.12);
+  --bg-base:     #dde8f8;
+  --bg-mid:      #eaeeff;
+  --bg-top:      #f0e8ff;
+
+  // Glass cards
+  --glass-start:  rgba(255, 255, 255, 0.75);
+  --glass-end:    rgba(230, 240, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.60);
+  --glass-sh-1:   rgba(31, 38, 135, 0.12);
+  --glass-sh-2:   rgba(0,   0,   0, 0.06);
+  --glass-inset:  rgba(255, 255, 255, 0.85);
+
+  // Header / footer glass
+  --chrome-bg:     rgba(30, 50, 100, 0.30);
+  --chrome-border: rgba(255, 255, 255, 0.18);
+  --chrome-sh:     rgba(0, 0, 0, 0.12);
+
+  // Typography
+  --c-text:       #475569;
+  --c-heading:    #3d4144;
+  --c-link:       #2563eb;
+  --c-link-hover: #1d4ed8;
+
+  // Timeline
+  --tl-line:  rgba(37, 99, 235, 0.40);
+  --tl-dot:   #2563eb;
+  --tl-ring:  rgba(37, 99, 235, 0.22);
+  --tl-dot-border: #ffffff;
+
+  // Dividers
+  --divider: rgba(0, 0, 0, 0.08);
+
+  // Inner description box
+  --desc-box-bg: rgba(255, 255, 255, 0.30);
+}
+
+// ==========================================
+// CSS CUSTOM PROPERTIES — Dark Mode
+// Applied when body.dark (added by theme JS
+// when prefers-color-scheme: dark is detected)
+// ==========================================
+
+body.dark {
+  --bg-color-1:  rgba(37,  99, 235, 0.10);
+  --bg-color-2:  rgba(124, 58, 237, 0.08);
+  --bg-color-3:  rgba(37,  99, 235, 0.05);
+  --bg-base:     #0d1420;
+  --bg-mid:      #0f1629;
+  --bg-top:      #13102a;
+
+  --glass-start:  rgba(25, 38, 72, 0.88);
+  --glass-end:    rgba(15, 24, 55, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-sh-1:   rgba(0, 0, 0, 0.40);
+  --glass-sh-2:   rgba(0, 0, 0, 0.28);
+  --glass-inset:  rgba(255, 255, 255, 0.05);
+
+  --chrome-bg:     rgba(8, 14, 40, 0.78);
+  --chrome-border: rgba(255, 255, 255, 0.07);
+  --chrome-sh:     rgba(0, 0, 0, 0.40);
+
+  --c-text:       #94a3b8;
+  --c-heading:    #e2e8f0;
+  --c-link:       #60a5fa;
+  --c-link-hover: #93c5fd;
+
+  --tl-line:  rgba(96, 165, 250, 0.45);
+  --tl-dot:   #60a5fa;
+  --tl-ring:  rgba(96, 165, 250, 0.20);
+  --tl-dot-border: #0d1420;
+
+  --divider: rgba(255, 255, 255, 0.07);
+
+  // Inner description box
+  --desc-box-bg: rgba(15, 24, 55, 0.50);
+
+  // Override theme's dark-mode defaults
+  background-color: transparent;
+  color: var(--c-text);
+
+  h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
+
+  a {
+    color: var(--c-link);
+    &:hover { color: var(--c-link-hover); }
   }
-  100% {
-    opacity: 1;
+
+  mark {
+    color: #0d1420;
+    background-color: #e2e8f0;
   }
 }
+
+// ==========================================
+// ANIMATIONS
+// ==========================================
 
 @keyframes intro {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: translateY(0);   }
 }
 
 // ==========================================
-// BASE STYLES
+// BASE
 // ==========================================
 
 html {
   box-sizing: border-box;
-  background:
-    radial-gradient(ellipse at 15% 15%, rgba(37, 99, 235, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 85%, rgba(124, 58, 237, 0.2) 0%, transparent 55%),
-    radial-gradient(ellipse at 70% 20%, rgba(37, 99, 235, 0.12) 0%, transparent 40%),
-    linear-gradient(160deg, #dde8f8 0%, #eaeeff 40%, #f0e8ff 70%, #dde8f8 100%);
-  background-attachment: fixed;
   font-size: 13px !important;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-}
-
-body {
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: $text-color;
+  color: var(--c-text);
+  background:
+    radial-gradient(ellipse at 15% 15%, var(--bg-color-1) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 85%, var(--bg-color-2) 0%, transparent 55%),
+    radial-gradient(ellipse at 70% 20%, var(--bg-color-3) 0%, transparent 40%),
+    linear-gradient(160deg, var(--bg-base) 0%, var(--bg-mid) 40%, var(--bg-top) 70%, var(--bg-base) 100%);
+  background-attachment: fixed;
+  transition: background 0.35s ease, color 0.35s ease;
 }
 
 * {
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
+// ==========================================
+// TYPOGRAPHY
+// ==========================================
+
 h1, h2, h3, h4, h5, h6 {
+  color: var(--c-heading);
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  color: $site-dark-gray;
-  margin: 1em 0 0.5em;
+  transition: color 0.35s ease;
 }
 
 h1 {
   font-size: 1.1em !important;
   font-weight: 600 !important;
+  margin: 0.4em 0 !important;
 }
 
+// h2 = person's subtitle in header — no separator
 h2 {
-  font-size: 0.95em !important;
-  padding-bottom: 0.4em;
-  border-bottom: 1px solid #ddd;
-  margin: 0.6em 0 0.3em !important;
-  font-weight: 600 !important;
-}
-
-h3 {
-  font-size: 0.9em !important;
-  margin: 0.5em 0 0.2em !important;
-  font-weight: 600 !important;
-}
-
-h4, h5, h6 {
-  font-size: 0.8em !important;
-  font-weight: 600 !important;
-  margin: 0.4em 0 0.2em !important;
-}
-
-p, li, ul, ol, dl {
   font-size: 1em !important;
-  line-height: 1.5;
+  font-weight: 500 !important;
   margin: 0.3em 0 !important;
 }
 
-b, strong {
-  font-size: inherit;
-  font-weight: 600;
+// h3 = section titles (About Me, Research Experience, …)
+h3 {
+  font-size: 0.95em !important;
+  font-weight: 700 !important;
+  margin: 0 0 0.9em !important;
+  padding-bottom: 0.45em;
+  border-bottom: 1px solid var(--divider);
 }
+
+// h4 = item titles (Penn State, etc.)
+h4 {
+  font-size: 0.9em !important;
+  font-weight: 600 !important;
+  margin: 0 0 0.2em !important;
+}
+
+h5, h6 {
+  font-size: 0.8em !important;
+  font-weight: 600 !important;
+  margin: 0.3em 0 0.2em !important;
+}
+
+p, li {
+  font-size: 1em !important;
+  line-height: 1.55;
+  margin: 0.25em 0 !important;
+}
+
+b, strong { font-weight: 600; font-size: inherit; }
 
 a {
   font-size: 0.85em !important;
-}
-
-a {
-  color: $site-blue;
+  color: var(--c-link);
   text-decoration: none;
-
-  &:hover, &:active, &:focus {
-    color: darken($site-blue, 15%);
-  }
+  transition: color 0.25s ease;
+  &:hover, &:focus { color: var(--c-link-hover); }
 }
 
 // ==========================================
-// HEADER LIQUID GLASS (Masthead style)
+// HEADER — Sticky liquid-glass masthead
 // ==========================================
 
 .header-container {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(30, 50, 100, 0.30) !important;
+  background: var(--chrome-bg) !important;
   backdrop-filter: blur(32px) saturate(200%);
   -webkit-backdrop-filter: blur(32px) saturate(200%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom: 1px solid var(--chrome-border);
   box-shadow:
-    0 2px 16px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  animation: intro 0.3s both;
-  animation-delay: 0.15s;
+    0 2px 20px var(--chrome-sh),
+    inset 0 1px 0 var(--chrome-border);
   border-radius: 0 0 20px 20px;
-  margin: 12px auto !important;
+  margin: 0 0 12px !important;
   padding: 1.2em 2em !important;
   text-align: center !important;
   display: block !important;
-  max-width: 100% !important;
   width: 100% !important;
+  animation: intro 0.3s both 0.1s;
+  transition: background 0.35s ease, border-color 0.35s ease;
 
-  h1, h2, h3 {
+  h1, h2 {
     text-align: center !important;
-    margin: 0.3em 0 !important;
-    font-size: 1.1em !important;
+    margin: 0.25em 0 !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
 
-  .contact {
-    text-align: center !important;
-  }
+  h1 { font-size: 1.1em !important; color: var(--c-heading) !important; }
+  h2 { font-size: 0.92em !important; color: var(--c-text) !important; }
+
+  .contact { text-align: center !important; }
 }
 
-.header-right {
-  background: transparent !important;
-  text-align: center !important;
-  width: 100% !important;
-  float: none !important;
-  display: block !important;
-  margin: 0 auto !important;
-}
-
+.header-right,
 .header-left {
   background: transparent !important;
   text-align: center !important;
@@ -183,43 +262,70 @@ a {
 }
 
 .profile-img {
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-sh-2);
   display: block !important;
   margin: 0 auto !important;
 }
 
 // ==========================================
-// CONTENT SECTIONS LIQUID GLASS
+// GLASS CARD — shared styles
 // ==========================================
 
-.layout {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(230, 240, 255, 0.65) 100%);
+%glass-card {
+  background: linear-gradient(135deg, var(--glass-start) 0%, var(--glass-end) 100%);
   backdrop-filter: blur(24px) saturate(160%);
   -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow:
-    0 8px 40px rgba(31, 38, 135, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.2rem;
-  padding: 1.2rem;
+    0 8px 40px var(--glass-sh-1),
+    0 2px 8px  var(--glass-sh-2),
+    inset 0 1px 0 var(--glass-inset);
   animation: intro 0.3s both;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
 
-  &:nth-child(1) {
-    animation-delay: 0.35s;
-  }
+// ==========================================
+// ABOUT SECTION — glass card + normal text
+// ==========================================
 
-  &:nth-child(2) {
-    animation-delay: 0.45s;
-  }
+.intro-container {
+  @extend %glass-card;
+  padding: 1.5rem 1.75rem;
+  margin-bottom: 1.2rem;
+  animation-delay: 0.25s;
 
-  &:nth-child(3) {
-    animation-delay: 0.55s;
+  // The profile image (background-image span)
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid var(--glass-border);
+    box-shadow: 0 4px 16px var(--glass-sh-2);
   }
 }
 
+// ==========================================
+// CONTENT SECTIONS — glass card list items
+// ==========================================
+
+.layout {
+  @extend %glass-card;
+  margin-bottom: 1rem;
+  padding: 1.2rem 1.4rem;
+
+  &:nth-child(2)  { animation-delay: 0.30s; }
+  &:nth-child(3)  { animation-delay: 0.40s; }
+  &:nth-child(4)  { animation-delay: 0.50s; }
+  &:nth-child(5)  { animation-delay: 0.60s; }
+  &:nth-child(n+6){ animation-delay: 0.70s; }
+}
+
+// Layout variants sit transparently inside their card
 .layout-left,
 .layout-right,
 .layout-top,
@@ -229,115 +335,190 @@ a {
 }
 
 // ==========================================
-// FOOTER LIQUID GLASS
+// TIMELINE — Experience / Education / etc.
 // ==========================================
-
-.footer-container {
-  background: rgba(30, 50, 100, 0.20);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-top: 1px solid rgba(255, 255, 255, 0.18);
-  box-shadow:
-    0 -2px 16px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  text-align: center;
-
-  p, span, a {
-    font-size: 0.9em;
-  }
-}
-
-// ==========================================
-// ABOUT SECTION STYLING
-// ==========================================
-
-#about-me,
-.about-section,
-[id*="about"] {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(230, 240, 255, 0.65) 100%) !important;
-  backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  border-radius: 20px !important;
-  box-shadow:
-    0 8px 40px rgba(31, 38, 135, 0.12),
-    0 2px 8px rgba(0, 0, 0, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85) !important;
-  padding: 2em !important;
-  margin: 2em auto !important;
-  animation: intro 0.3s both;
-  animation-delay: 0.45s;
-}
-
-// ==========================================
-// LIST AND TEXT STYLING
+//
+// Structure:
+//   div.container.list-container   ← section wrapper
+//     h3                           ← section title
+//     div.layout.layout-left       ← each item (glass card)
+//       div.container
+//         div.row.clearfix
+//           div.details (col-md-3) ← org, role, date, link
+//           div (col-md-9)         ← description
 // ==========================================
 
 .list-container {
-  background: transparent;
-}
+  position: relative;
+  // 36px left gutter for the timeline line + dot
+  padding-left: 36px !important;
 
-.border-weak {
-  border-color: rgba(0, 0, 0, 0.06);
-}
+  // Section title spans the full width (undo the gutter indent)
+  > h3 {
+    margin-left: -36px;
+    padding-left: 2px;
+    border-bottom-color: var(--divider);
+  }
 
-// ==========================================
-// DETAILS/CONTENT STYLING
-// ==========================================
+  // ── Vertical connecting line ──────────────────────
+  &::before {
+    content: '';
+    position: absolute;
+    left: 17px;          // center of the 36px gutter
+    top: 3.2rem;         // starts below the section h3
+    bottom: 1rem;
+    width: 2px;
+    border-radius: 1px;
+    background: linear-gradient(
+      to bottom,
+      var(--tl-line)  0%,
+      var(--tl-line) 80%,
+      transparent   100%
+    );
+    pointer-events: none;
+    transition: background 0.35s ease;
+  }
 
-.details {
-  color: $text-color;
+  // ── Dot on each card ─────────────────────────────
+  .layout {
+    position: relative;
+    overflow: visible !important; // allow dot to overflow left edge
 
-  a {
-    color: $site-blue;
+    &::before {
+      content: '';
+      position: absolute;
+      // Align dot center with line center
+      // Line: left:17px + width:2px → center at 18px from container left
+      // Layout starts at 36px → dot left = 18px - 36px - 7px(radius) = -25px
+      left: -25px;
+      top: 1.2rem;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--tl-dot);
+      border: 2.5px solid var(--tl-dot-border);
+      box-shadow:
+        0 0 0 3px var(--tl-ring),
+        0 2px 6px var(--glass-sh-2);
+      z-index: 10;
+      transition: background 0.35s ease, border-color 0.35s ease;
+    }
+  }
+
+  // ── Description column — subtle inner card ────────
+  .layout .row .col-md-9,
+  .layout .row [class*="col-sm-8"] {
+    background: var(--desc-box-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: background 0.35s ease, border-color 0.35s ease;
   }
 }
 
 // ==========================================
-// CONTACT SECTION
+// DETAILS COLUMN (left side of list items)
+// ==========================================
+
+.details {
+  color: var(--c-text);
+  padding-right: 0.5rem;
+
+  h4 { color: var(--c-heading); font-weight: 700 !important; }
+
+  a { color: var(--c-link); }
+}
+
+// ==========================================
+// CONTACT
 // ==========================================
 
 .contact {
   a {
-    color: $site-blue;
-
-    &:hover {
-      color: darken($site-blue, 15%);
-    }
+    color: var(--c-link);
+    &:hover { color: var(--c-link-hover); }
   }
 }
 
 // ==========================================
-// PRINT STYLES
+// UTILITIES
+// ==========================================
+
+.border-weak   { border-color: var(--divider); }
+.list-container { background: transparent; }
+
+// ==========================================
+// FOOTER
+// ==========================================
+
+.footer-container {
+  background: var(--chrome-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-top: 1px solid var(--chrome-border);
+  box-shadow:
+    0 -2px 16px var(--chrome-sh),
+    inset 0 1px 0 var(--chrome-border);
+  text-align: center;
+  transition: background 0.35s ease;
+
+  p, span, a { font-size: 0.9em; }
+}
+
+// ==========================================
+// PRINT
 // ==========================================
 
 @media print {
-  html, body {
-    background: white;
-  }
+  html, body { background: white !important; }
 
   .header-container {
-    background: white;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    box-shadow: none;
-    position: static;
+    background: white !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    position: static !important;
   }
 
-  .layout {
-    background: white;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: 1px solid #ddd;
-    box-shadow: none;
+  .layout,
+  .intro-container {
+    background: white !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
   }
 
   .footer-container {
-    background: white;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    border: none;
-    box-shadow: none;
+    background: white !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  // Hide timeline decorations in print
+  .list-container::before,
+  .list-container .layout::before {
+    display: none !important;
+  }
+
+  .list-container {
+    padding-left: 0 !important;
+    > h3 { margin-left: 0 !important; }
+  }
+
+  // Inner description box — flat in print
+  .layout .row .col-md-9,
+  .layout .row [class*="col-sm-8"] {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
   }
 }
