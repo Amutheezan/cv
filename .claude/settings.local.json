@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gem contents:*)",
+      "Bash(gem list:*)",
+      "Bash(bundle exec:*)",
+      "Bash(ruby -e \"puts Gem.paths.home\")",
+      "Bash(gem env:*)",
+      "Bash(gh api:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:sproogen.github.io)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git push:*)",
+      "Bash(git commit -m 'Fix oversized coursework/duties text in description columns:*)"
+    ]
+  }
+}
