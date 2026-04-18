@@ -480,6 +480,181 @@ a {
 // PRINT
 // ==========================================
 
+// ==========================================
+// PURPLE THEME — Light mode
+// html.theme-purple is added by no-flicker
+// init in <head> and also by toggle JS.
+// ==========================================
+
+html.theme-purple {
+  --bg-color-1:  rgba(124, 58, 237, 0.22);
+  --bg-color-2:  rgba(109, 40, 217, 0.20);
+  --bg-color-3:  rgba(124, 58, 237, 0.12);
+  --bg-base:     #f5f0ff;
+  --bg-mid:      #ede8ff;
+  --bg-top:      #faf5ff;
+
+  --glass-start:  rgba(250, 245, 255, 0.80);
+  --glass-end:    rgba(237, 230, 255, 0.70);
+  --glass-border: rgba(168, 85, 247, 0.22);
+  --glass-sh-1:   rgba(109, 40, 217, 0.10);
+
+  --chrome-bg:     rgba(76, 17, 160, 0.28);
+  --chrome-border: rgba(255, 255, 255, 0.20);
+
+  --tl-line:  rgba(124, 58, 237, 0.42);
+  --tl-dot:   #7c3aed;
+  --tl-ring:  rgba(124, 58, 237, 0.22);
+
+  --c-link:       #7c3aed;
+  --c-link-hover: #6d28d9;
+  --c-heading:    #4c1d95;
+
+  --divider: rgba(124, 58, 237, 0.12);
+}
+
+// PURPLE THEME — Dark mode
+html.theme-purple body.dark {
+  --bg-color-1:  rgba(124, 58, 237, 0.10);
+  --bg-color-2:  rgba(109, 40, 217, 0.08);
+  --bg-color-3:  rgba(124, 58, 237, 0.05);
+  --bg-base:     #1e0a3c;
+  --bg-mid:      #1a0835;
+  --bg-top:      #130626;
+
+  --glass-start:  rgba(46, 16, 80, 0.88);
+  --glass-end:    rgba(30, 10, 60, 0.82);
+  --glass-border: rgba(196, 181, 253, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.42);
+  --glass-inset:  rgba(255, 255, 255, 0.04);
+
+  --chrome-bg:     rgba(30, 8, 70, 0.82);
+  --chrome-border: rgba(196, 181, 253, 0.08);
+
+  --tl-line:       rgba(196, 181, 253, 0.40);
+  --tl-dot:        #c4b5fd;
+  --tl-ring:       rgba(196, 181, 253, 0.20);
+  --tl-dot-border: #1e0a3c;
+
+  --c-text:       #ede9fe;
+  --c-heading:    #f5f3ff;
+  --c-link:       #c4b5fd;
+  --c-link-hover: #ddd6fe;
+
+  --divider: rgba(196, 181, 253, 0.10);
+}
+
+// ==========================================
+// GREEN THEME — Light mode
+// ==========================================
+
+html.theme-green {
+  --bg-color-1:  rgba(22, 163, 74, 0.22);
+  --bg-color-2:  rgba(5, 150, 105, 0.20);
+  --bg-color-3:  rgba(22, 163, 74, 0.12);
+  --bg-base:     #f0fdf4;
+  --bg-mid:      #dcfce7;
+  --bg-top:      #ecfdf5;
+
+  --glass-start:  rgba(240, 253, 244, 0.82);
+  --glass-end:    rgba(220, 252, 231, 0.72);
+  --glass-border: rgba(34, 197, 94, 0.20);
+  --glass-sh-1:   rgba(16, 120, 60, 0.10);
+
+  --chrome-bg:     rgba(21, 128, 61, 0.28);
+  --chrome-border: rgba(255, 255, 255, 0.20);
+
+  --tl-line:  rgba(22, 163, 74, 0.42);
+  --tl-dot:   #16a34a;
+  --tl-ring:  rgba(22, 163, 74, 0.22);
+
+  --c-link:       #15803d;
+  --c-link-hover: #166534;
+  --c-heading:    #14532d;
+
+  --divider: rgba(22, 163, 74, 0.12);
+}
+
+// GREEN THEME — Dark mode
+html.theme-green body.dark {
+  --bg-color-1:  rgba(22, 163, 74, 0.10);
+  --bg-color-2:  rgba(5, 150, 105, 0.08);
+  --bg-color-3:  rgba(22, 163, 74, 0.05);
+  --bg-base:     #052e16;
+  --bg-mid:      #051a0e;
+  --bg-top:      #071e12;
+
+  --glass-start:  rgba(6, 46, 25, 0.88);
+  --glass-end:    rgba(5, 30, 18, 0.82);
+  --glass-border: rgba(74, 222, 128, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.42);
+  --glass-inset:  rgba(255, 255, 255, 0.04);
+
+  --chrome-bg:     rgba(6, 40, 22, 0.82);
+  --chrome-border: rgba(74, 222, 128, 0.08);
+
+  --tl-line:       rgba(74, 222, 128, 0.40);
+  --tl-dot:        #4ade80;
+  --tl-ring:       rgba(74, 222, 128, 0.20);
+  --tl-dot-border: #052e16;
+
+  --c-text:       #bbf7d0;
+  --c-heading:    #dcfce7;
+  --c-link:       #4ade80;
+  --c-link-hover: #86efac;
+
+  --divider: rgba(74, 222, 128, 0.10);
+}
+
+// ==========================================
+// FLOATING COLOR PALETTE PICKER
+// ==========================================
+
+.resume-color-picker {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  background: var(--chrome-bg);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--chrome-border);
+  border-radius: 999px;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+
+.resume-color-swatch {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.40);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease, border-color 0.2s ease;
+  opacity: 0.50;
+  background: none;
+
+  &.active {
+    opacity: 1;
+    transform: scale(1.35);
+    border-color: rgba(255, 255, 255, 0.92);
+  }
+
+  &:hover:not(.active) {
+    opacity: 0.85;
+    transform: scale(1.15);
+  }
+
+  &:focus { outline: none; }
+}
+
 @media print {
   html, body { background: white !important; }
 

@@ -1,0 +1,10 @@
+<!-- Color theme no-flicker init: runs before first paint to prevent flash -->
+<script>
+(function () {
+  try {
+    var ct = localStorage.getItem('resume-color-theme');
+    if (ct === 'purple') { document.documentElement.classList.add('theme-purple'); }
+    else if (ct === 'green') { document.documentElement.classList.add('theme-green'); }
+  } catch (e) {}
+})();
+</script>

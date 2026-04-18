@@ -1,0 +1,60 @@
+<!-- Color palette picker: floating 3-swatch button, persisted via localStorage -->
+<script>
+(function () {
+  var PALETTES = [
+    { key: 'blue',   color: '#60a5fa', label: 'Blue (default)' },
+    { key: 'green',  color: '#4ade80', label: 'Green' },
+    { key: 'purple', color: '#c084fc', label: 'Purple' }
+  ];
+
+  function getSavedTheme() {
+    try { return localStorage.getItem('resume-color-theme') || 'blue'; } catch (e) { return 'blue'; }
+  }
+
+  function applyTheme(key) {
+    var html = document.documentElement;
+    html.classList.remove('theme-purple', 'theme-green');
+    if (key === 'purple') { html.classList.add('theme-purple'); }
+    else if (key === 'green') { html.classList.add('theme-green'); }
+    try { localStorage.setItem('resume-color-theme', key); } catch (e) {}
+    updateSwatches(key);
+  }
+
+  function updateSwatches(activeKey) {
+    var swatches = document.querySelectorAll('.resume-color-swatch');
+    for (var i = 0; i < swatches.length; i++) {
+      var active = swatches[i].getAttribute('data-theme') === activeKey;
+      if (active) { swatches[i].classList.add('active'); }
+      else { swatches[i].classList.remove('active'); }
+    }
+  }
+
+  function buildPicker() {
+    var picker = document.createElement('div');
+    picker.className = 'resume-color-picker';
+    picker.setAttribute('aria-label', 'Choose color theme');
+
+    for (var i = 0; i < PALETTES.length; i++) {
+      var p = PALETTES[i];
+      var btn = document.createElement('button');
+      btn.className = 'resume-color-swatch';
+      btn.setAttribute('data-theme', p.key);
+      btn.setAttribute('title', p.label);
+      btn.style.background = p.color;
+      btn.addEventListener('click', (function (key) {
+        return function () { applyTheme(key); };
+      })(p.key));
+      picker.appendChild(btn);
+    }
+
+    document.body.appendChild(picker);
+    updateSwatches(getSavedTheme());
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', buildPicker);
+  } else {
+    buildPicker();
+  }
+})();
+</script>
