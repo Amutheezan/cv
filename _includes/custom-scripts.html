@@ -1,4 +1,5 @@
-<!-- Color palette picker + dark/light toggle: persisted via localStorage -->
+<!-- Colour palette picker + dark/light toggle.
+     Uses html[data-theme] and html[data-color-theme] to mirror the blog's approach. -->
 <script>
 (function () {
   var PALETTES = [
@@ -18,18 +19,18 @@
   }
 
   function isDark() {
-    return document.documentElement.classList.contains('dark-mode');
+    return document.documentElement.getAttribute('data-theme') === 'dark';
   }
 
   function setDarkMode(dark) {
     var html = document.documentElement;
     if (dark) {
-      html.classList.add('dark-mode');
-      // Keep body.dark in sync so the base theme's own dark-mode rules also apply
+      html.setAttribute('data-theme', 'dark');
+      // Keep body.dark in sync so the base theme's own CSS rules still apply
       document.body.classList.add('dark');
       try { localStorage.setItem('resume-dark-mode', 'dark'); } catch (e) {}
     } else {
-      html.classList.remove('dark-mode');
+      html.removeAttribute('data-theme');
       document.body.classList.remove('dark');
       try { localStorage.setItem('resume-dark-mode', 'light'); } catch (e) {}
     }
@@ -37,9 +38,11 @@
 
   function applyTheme(key) {
     var html = document.documentElement;
-    html.classList.remove('theme-purple', 'theme-green');
-    if (key === 'purple') { html.classList.add('theme-purple'); }
-    else if (key === 'green') { html.classList.add('theme-green'); }
+    if (key === 'blue') {
+      html.removeAttribute('data-color-theme');
+    } else {
+      html.setAttribute('data-color-theme', key);
+    }
     try { localStorage.setItem('resume-color-theme', key); } catch (e) {}
     updateSwatches(key);
   }
@@ -102,7 +105,7 @@
     // Sync swatches to saved colour theme
     updateSwatches(getSavedTheme());
 
-    // Sync body.dark with the html.dark-mode class that was set by <head> init
+    // Sync body.dark with the data-theme attribute set by <head> init
     if (isDark()) {
       document.body.classList.add('dark');
     } else {

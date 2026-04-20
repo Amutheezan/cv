@@ -1,17 +1,20 @@
-<!-- Theme + dark-mode no-flicker init: runs before first paint to prevent flash -->
+<!-- Theme + dark-mode no-flicker init: runs before first paint to prevent flash.
+     Uses data attributes to match the blog's html[data-theme] / html[data-color-theme] approach. -->
 <script>
 (function () {
   try {
-    // Restore color theme
+    // Restore colour theme via data-color-theme attribute (matches blog)
     var ct = localStorage.getItem('resume-color-theme');
-    if (ct === 'purple') { document.documentElement.classList.add('theme-purple'); }
-    else if (ct === 'green')  { document.documentElement.classList.add('theme-green');  }
+    if (ct === 'purple' || ct === 'green') {
+      document.documentElement.setAttribute('data-color-theme', ct);
+    }
 
-    // Restore dark/light preference (default: dark).
-    // We set html.dark-mode here (in <head>) so CSS vars are correct before first paint.
-    // body.dark is synced by custom-scripts.html once <body> exists.
+    // Restore dark/light preference via data-theme attribute (matches blog).
+    // Default: dark (consistent with previous darkmode: true config).
     var dm = localStorage.getItem('resume-dark-mode');
-    if (dm !== 'light') { document.documentElement.classList.add('dark-mode'); }
+    if (dm !== 'light') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
   } catch (e) {}
 })();
 </script>

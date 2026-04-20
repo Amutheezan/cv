@@ -11,90 +11,97 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 // ==========================================
-// CSS CUSTOM PROPERTIES — Light Mode
+// CSS CUSTOM PROPERTIES — Light Mode (Blue / default)
+// Palette aligned with amutheezan.com blog
 // ==========================================
 
 :root {
-  // Page background color stops
-  --bg-color-1:  rgba(37, 99, 235, 0.22);
-  --bg-color-2:  rgba(124, 58, 237, 0.20);
-  --bg-color-3:  rgba(37, 99, 235, 0.12);
-  --bg-base:     #dde8f8;
-  --bg-mid:      #eaeeff;
-  --bg-top:      #f0e8ff;
+  // Page background — softer slate tones matching blog's #f1f5f9 base
+  --bg-color-1:  rgba(37, 99, 235, 0.14);
+  --bg-color-2:  rgba(124, 58, 237, 0.10);
+  --bg-color-3:  rgba(37, 99, 235, 0.07);
+  --bg-base:     #f1f5f9;   // blog: slate-100
+  --bg-mid:      #e2e8f0;   // slate-200
+  --bg-top:      #f8fafc;   // slate-50
 
-  // Glass cards
-  --glass-start:  rgba(255, 255, 255, 0.75);
-  --glass-end:    rgba(230, 240, 255, 0.65);
+  // Glass cards — blog: rgba(255,255,255,0.68) / blur 24px
+  --glass-start:  rgba(255, 255, 255, 0.72);
+  --glass-end:    rgba(226, 232, 240, 0.62);
   --glass-border: rgba(255, 255, 255, 0.60);
-  --glass-sh-1:   rgba(31, 38, 135, 0.12);
-  --glass-sh-2:   rgba(0,   0,   0, 0.06);
+  --glass-sh-1:   rgba(31, 38, 135, 0.10);
+  --glass-sh-2:   rgba(0,   0,   0, 0.05);
   --glass-inset:  rgba(255, 255, 255, 0.85);
 
   // Header / footer glass
-  --chrome-bg:     rgba(30, 50, 100, 0.30);
-  --chrome-border: rgba(255, 255, 255, 0.18);
-  --chrome-sh:     rgba(0, 0, 0, 0.12);
+  --chrome-bg:     rgba(37, 99, 235, 0.18);
+  --chrome-border: rgba(255, 255, 255, 0.22);
+  --chrome-sh:     rgba(0, 0, 0, 0.10);
 
-  // Typography
-  --c-text:       #475569;
-  --c-heading:    #3d4144;
-  --c-link:       #2563eb;
-  --c-link-hover: #1d4ed8;
+  // Typography — blog: slate-600 body, slate-800 headings, blue-600 links
+  --c-text:       #475569;  // slate-600
+  --c-heading:    #1e293b;  // slate-800
+  --c-link:       #2563eb;  // blue-600
+  --c-link-hover: #1d4ed8;  // blue-700
 
   // Timeline
-  --tl-line:  rgba(37, 99, 235, 0.40);
+  --tl-line:  rgba(37, 99, 235, 0.35);
   --tl-dot:   #2563eb;
-  --tl-ring:  rgba(37, 99, 235, 0.22);
+  --tl-ring:  rgba(37, 99, 235, 0.18);
   --tl-dot-border: #ffffff;
 
   // Dividers
-  --divider: rgba(0, 0, 0, 0.08);
+  --divider: rgba(0, 0, 0, 0.07);
 
   // Inner description box
-  --desc-box-bg: rgba(255, 255, 255, 0.30);
+  --desc-box-bg: rgba(255, 255, 255, 0.38);
 }
 
 // ==========================================
-// CSS CUSTOM PROPERTIES — Dark Mode
-// Applied when html.dark-mode (set by no-flicker
-// init in <head> and toggled by the picker JS).
+// CSS CUSTOM PROPERTIES — Dark Mode (Blue)
+// html[data-theme="dark"] — mirrors blog's data-attribute approach.
+// Blog palette: #0f172a bg, #cbd5e1 text, #e2e8f0 headings, #60a5fa links.
 // ==========================================
 
-html.dark-mode {
-  --bg-color-1:  rgba(37,  99, 235, 0.10);
-  --bg-color-2:  rgba(124, 58, 237, 0.08);
-  --bg-color-3:  rgba(37,  99, 235, 0.05);
-  --bg-base:     #0d1420;
-  --bg-mid:      #0f1629;
-  --bg-top:      #13102a;
+html[data-theme="dark"] {
+  --bg-color-1:  rgba(37,  99, 235, 0.08);
+  --bg-color-2:  rgba(124, 58, 237, 0.06);
+  --bg-color-3:  rgba(37,  99, 235, 0.04);
+  --bg-base:     #0f172a;   // blog: slate-900
+  --bg-mid:      #1e293b;   // blog: slate-800
+  --bg-top:      #0f172a;
 
-  --glass-start:  rgba(25, 38, 72, 0.88);
-  --glass-end:    rgba(15, 24, 55, 0.82);
-  --glass-border: rgba(255, 255, 255, 0.09);
-  --glass-sh-1:   rgba(0, 0, 0, 0.40);
-  --glass-sh-2:   rgba(0, 0, 0, 0.28);
-  --glass-inset:  rgba(255, 255, 255, 0.05);
+  // Glass cards — blog dark panel: rgba(15,28,65,0.78)
+  --glass-start:  rgba(15, 28, 65, 0.82);
+  --glass-end:    rgba(30, 41, 59, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.45);
+  --glass-sh-2:   rgba(0, 0, 0, 0.30);
+  --glass-inset:  rgba(255, 255, 255, 0.06);
 
-  --chrome-bg:     rgba(8, 14, 40, 0.78);
-  --chrome-border: rgba(255, 255, 255, 0.07);
+  // Header — blog masthead: rgba(10,18,55,0.72)→rgba(28,8,70,0.65)
+  --chrome-bg:     rgba(10, 18, 55, 0.82);
+  --chrome-border: rgba(255, 255, 255, 0.08);
   --chrome-sh:     rgba(0, 0, 0, 0.40);
 
-  --c-text:       #94a3b8;
-  --c-heading:    #e2e8f0;
-  --c-link:       #60a5fa;
-  --c-link-hover: #93c5fd;
+  // Typography
+  --c-text:       #cbd5e1;  // blog: slate-300
+  --c-heading:    #e2e8f0;  // blog: slate-200
+  --c-link:       #60a5fa;  // blog: blue-400
+  --c-link-hover: #93c5fd;  // blog: blue-300
 
-  --tl-line:  rgba(96, 165, 250, 0.45);
+  // Timeline
+  --tl-line:  rgba(96, 165, 250, 0.40);
   --tl-dot:   #60a5fa;
-  --tl-ring:  rgba(96, 165, 250, 0.20);
-  --tl-dot-border: #0d1420;
+  --tl-ring:  rgba(96, 165, 250, 0.18);
+  --tl-dot-border: #0f172a;
 
-  --divider: rgba(255, 255, 255, 0.07);
+  // Dividers
+  --divider: rgba(255, 255, 255, 0.08);
 
-  --desc-box-bg: rgba(15, 24, 55, 0.50);
+  // Inner description box — blog dark panel
+  --desc-box-bg: rgba(15, 28, 65, 0.55);
 
-  // Apply dark styles to body and descendants
+  // Apply dark body/type overrides
   body {
     background-color: transparent;
     color: var(--c-text);
@@ -107,7 +114,7 @@ html.dark-mode {
     }
 
     mark {
-      color: #0d1420;
+      color: #0f172a;
       background-color: #e2e8f0;
     }
   }
@@ -142,7 +149,7 @@ body {
     radial-gradient(ellipse at 70% 20%, var(--bg-color-3) 0%, transparent 40%),
     linear-gradient(160deg, var(--bg-base) 0%, var(--bg-mid) 40%, var(--bg-top) 70%, var(--bg-base) 100%);
   background-attachment: fixed;
-  transition: background 0.35s ease, color 0.35s ease;
+  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 * {
@@ -156,7 +163,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--c-heading);
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-  transition: color 0.35s ease;
+  transition: color 0.2s ease-in-out;
 }
 
 h1 {
@@ -194,7 +201,7 @@ h5, h6 {
   margin: 0.3em 0 0.2em !important;
 }
 
-p, li, ul, ol, dl, span, blockquote {
+p, li, ul, ol, dl, span {
   font-size: 1em !important;
   line-height: 1.55;
   margin: 0.25em 0 !important;
@@ -215,8 +222,45 @@ a {
   font-size: 0.85em !important;
   color: var(--c-link);
   text-decoration: none;
-  transition: color 0.25s ease;
+  transition: color 0.2s ease-in-out;
   &:hover, &:focus { color: var(--c-link-hover); }
+}
+
+// Blockquote — blog style: blue left border, rounded right, subtle bg
+blockquote {
+  margin: 0.75em 0 !important;
+  padding: 0.6em 1em !important;
+  font-size: 1em !important;
+  line-height: 1.55;
+  background: rgba(37, 99, 235, 0.05);
+  border-left: 3px solid rgba(37, 99, 235, 0.55);
+  border-radius: 0 10px 10px 0;
+  transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
+
+  html[data-theme="dark"] & {
+    background: rgba(37, 99, 235, 0.10);
+    border-left-color: rgba(96, 165, 250, 0.65);
+  }
+
+  html[data-color-theme="green"] & {
+    background: rgba(22, 163, 74, 0.06);
+    border-left-color: rgba(22, 163, 74, 0.70);
+  }
+
+  html[data-color-theme="green"][data-theme="dark"] & {
+    background: rgba(74, 222, 128, 0.08);
+    border-left-color: rgba(74, 222, 128, 0.55);
+  }
+
+  html[data-color-theme="purple"] & {
+    background: rgba(124, 58, 237, 0.05);
+    border-left-color: rgba(124, 58, 237, 0.60);
+  }
+
+  html[data-color-theme="purple"][data-theme="dark"] & {
+    background: rgba(196, 181, 253, 0.08);
+    border-left-color: rgba(196, 181, 253, 0.55);
+  }
 }
 
 // ==========================================
@@ -241,7 +285,7 @@ a {
   display: block !important;
   width: 100% !important;
   animation: intro 0.3s both 0.1s;
-  transition: background 0.35s ease, border-color 0.35s ease;
+  transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
 
   h1, h2 {
     text-align: center !important;
@@ -294,9 +338,9 @@ a {
     inset 0 1px 0 var(--glass-inset);
   animation: intro 0.3s both;
   transition:
-    background 0.35s ease,
-    border-color 0.35s ease,
-    box-shadow 0.35s ease;
+    background 0.2s ease-in-out,
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
 }
 
 // ==========================================
@@ -386,7 +430,7 @@ a {
       transparent   100%
     );
     pointer-events: none;
-    transition: background 0.35s ease;
+    transition: background 0.2s ease-in-out;
   }
 
   // ── Dot on each card ─────────────────────────────
@@ -411,7 +455,7 @@ a {
         0 0 0 3px var(--tl-ring),
         0 2px 6px var(--glass-sh-2);
       z-index: 10;
-      transition: background 0.35s ease, border-color 0.35s ease;
+      transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
     }
   }
 
@@ -424,7 +468,7 @@ a {
     padding: 0.75rem 1rem;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    transition: background 0.35s ease, border-color 0.35s ease;
+    transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
   }
 }
 
@@ -472,139 +516,138 @@ a {
     0 -2px 16px var(--chrome-sh),
     inset 0 1px 0 var(--chrome-border);
   text-align: center;
-  transition: background 0.35s ease;
+  transition: background 0.2s ease-in-out;
 
   p, span, a { font-size: 0.9em; }
 }
 
 // ==========================================
-// PRINT
-// ==========================================
-
-// ==========================================
 // PURPLE THEME — Light mode
-// html.theme-purple is added by no-flicker
-// init in <head> and also by toggle JS.
+// html[data-color-theme="purple"] — mirrors blog's data-attribute approach.
+// Exact colours from blog's _color-themes.scss.
 // ==========================================
 
-html.theme-purple {
-  --bg-color-1:  rgba(124, 58, 237, 0.22);
-  --bg-color-2:  rgba(109, 40, 217, 0.20);
-  --bg-color-3:  rgba(124, 58, 237, 0.12);
-  --bg-base:     #f5f0ff;
-  --bg-mid:      #ede8ff;
+html[data-color-theme="purple"] {
+  --bg-color-1:  rgba(124, 58, 237, 0.18);
+  --bg-color-2:  rgba(109, 40, 217, 0.15);
+  --bg-color-3:  rgba(124, 58, 237, 0.10);
+  --bg-base:     #faf5ff;   // blog: faf5ff
+  --bg-mid:      #f3e8ff;
   --bg-top:      #faf5ff;
 
-  --glass-start:  rgba(250, 245, 255, 0.80);
-  --glass-end:    rgba(237, 230, 255, 0.70);
-  --glass-border: rgba(168, 85, 247, 0.22);
-  --glass-sh-1:   rgba(109, 40, 217, 0.10);
+  --glass-start:  rgba(250, 245, 255, 0.82);  // blog: rgba(250,245,255,0.88)
+  --glass-end:    rgba(237, 232, 255, 0.72);
+  --glass-border: rgba(168, 85, 247, 0.18);   // blog: rgba(168,85,247,0.18)
+  --glass-sh-1:   rgba(109, 40, 217, 0.08);
 
-  --chrome-bg:     rgba(76, 17, 160, 0.28);
+  --chrome-bg:     rgba(109, 40, 217, 0.22);
   --chrome-border: rgba(255, 255, 255, 0.20);
 
-  --tl-line:  rgba(124, 58, 237, 0.42);
+  --tl-line:  rgba(124, 58, 237, 0.40);
   --tl-dot:   #7c3aed;
-  --tl-ring:  rgba(124, 58, 237, 0.22);
+  --tl-ring:  rgba(124, 58, 237, 0.18);
 
-  --c-link:       #7c3aed;
-  --c-link-hover: #6d28d9;
-  --c-heading:    #4c1d95;
+  --c-link:       #7c3aed;  // blog: #7c3aed
+  --c-link-hover: #6d28d9;  // blog: #6d28d9
+  --c-heading:    #4c1d95;  // blog: #4c1d95
 
-  --divider: rgba(124, 58, 237, 0.12);
+  --divider: rgba(124, 58, 237, 0.10);
 }
 
 // PURPLE THEME — Dark mode
-html.theme-purple.dark-mode {
-  --bg-color-1:  rgba(124, 58, 237, 0.10);
-  --bg-color-2:  rgba(109, 40, 217, 0.08);
-  --bg-color-3:  rgba(124, 58, 237, 0.05);
-  --bg-base:     #1e0a3c;
+html[data-color-theme="purple"][data-theme="dark"] {
+  --bg-color-1:  rgba(124, 58, 237, 0.08);
+  --bg-color-2:  rgba(109, 40, 217, 0.06);
+  --bg-color-3:  rgba(124, 58, 237, 0.04);
+  --bg-base:     #1e0a3c;   // blog: #1e0a3c
   --bg-mid:      #1a0835;
-  --bg-top:      #130626;
+  --bg-top:      #1e0a3c;
 
-  --glass-start:  rgba(46, 16, 80, 0.88);
-  --glass-end:    rgba(30, 10, 60, 0.82);
+  --glass-start:  rgba(30, 10, 60, 0.82);   // blog: rgba(30,10,60,0.80)
+  --glass-end:    rgba(30, 10, 60, 0.78);
   --glass-border: rgba(196, 181, 253, 0.10);
-  --glass-sh-1:   rgba(0, 0, 0, 0.42);
+  --glass-sh-1:   rgba(0, 0, 0, 0.45);
   --glass-inset:  rgba(255, 255, 255, 0.04);
 
-  --chrome-bg:     rgba(30, 8, 70, 0.82);
+  --chrome-bg:     rgba(28, 8, 70, 0.82);
   --chrome-border: rgba(196, 181, 253, 0.08);
 
-  --tl-line:       rgba(196, 181, 253, 0.40);
+  --tl-line:       rgba(196, 181, 253, 0.38);
   --tl-dot:        #c4b5fd;
-  --tl-ring:       rgba(196, 181, 253, 0.20);
+  --tl-ring:       rgba(196, 181, 253, 0.18);
   --tl-dot-border: #1e0a3c;
 
-  --c-text:       #ede9fe;
+  --c-text:       #ede9fe;  // blog: #ede9fe
   --c-heading:    #f5f3ff;
-  --c-link:       #c4b5fd;
-  --c-link-hover: #ddd6fe;
+  --c-link:       #c4b5fd;  // blog: #c4b5fd
+  --c-link-hover: #ddd6fe;  // blog: #ddd6fe
 
-  --divider: rgba(196, 181, 253, 0.10);
+  --divider: rgba(196, 181, 253, 0.08);
+  --desc-box-bg: rgba(30, 10, 60, 0.55);
 }
 
 // ==========================================
 // GREEN THEME — Light mode
+// html[data-color-theme="green"] — exact colours from blog's _color-themes.scss.
 // ==========================================
 
-html.theme-green {
-  --bg-color-1:  rgba(22, 163, 74, 0.22);
-  --bg-color-2:  rgba(5, 150, 105, 0.20);
-  --bg-color-3:  rgba(22, 163, 74, 0.12);
-  --bg-base:     #f0fdf4;
+html[data-color-theme="green"] {
+  --bg-color-1:  rgba(21, 128, 61, 0.18);
+  --bg-color-2:  rgba(5, 150, 105, 0.15);
+  --bg-color-3:  rgba(21, 128, 61, 0.10);
+  --bg-base:     #f0fdf4;   // blog: #f0fdf4
   --bg-mid:      #dcfce7;
   --bg-top:      #ecfdf5;
 
-  --glass-start:  rgba(240, 253, 244, 0.82);
+  --glass-start:  rgba(240, 253, 244, 0.82);  // blog: rgba(240,253,244,0.88)
   --glass-end:    rgba(220, 252, 231, 0.72);
-  --glass-border: rgba(34, 197, 94, 0.20);
-  --glass-sh-1:   rgba(16, 120, 60, 0.10);
+  --glass-border: rgba(34, 197, 94, 0.18);    // blog: rgba(34,197,94,0.18)
+  --glass-sh-1:   rgba(16, 120, 60, 0.08);
 
-  --chrome-bg:     rgba(21, 128, 61, 0.28);
+  --chrome-bg:     rgba(21, 128, 61, 0.22);
   --chrome-border: rgba(255, 255, 255, 0.20);
 
-  --tl-line:  rgba(22, 163, 74, 0.42);
+  --tl-line:  rgba(22, 163, 74, 0.40);
   --tl-dot:   #16a34a;
-  --tl-ring:  rgba(22, 163, 74, 0.22);
+  --tl-ring:  rgba(22, 163, 74, 0.18);
 
-  --c-link:       #15803d;
-  --c-link-hover: #166534;
-  --c-heading:    #14532d;
+  --c-link:       #15803d;  // blog: #15803d
+  --c-link-hover: #166534;  // blog: #166534
+  --c-heading:    #14532d;  // blog: #14532d
 
-  --divider: rgba(22, 163, 74, 0.12);
+  --divider: rgba(22, 163, 74, 0.10);
 }
 
 // GREEN THEME — Dark mode
-html.theme-green.dark-mode {
-  --bg-color-1:  rgba(22, 163, 74, 0.10);
-  --bg-color-2:  rgba(5, 150, 105, 0.08);
-  --bg-color-3:  rgba(22, 163, 74, 0.05);
-  --bg-base:     #052e16;
+html[data-color-theme="green"][data-theme="dark"] {
+  --bg-color-1:  rgba(22, 163, 74, 0.08);
+  --bg-color-2:  rgba(5, 150, 105, 0.06);
+  --bg-color-3:  rgba(22, 163, 74, 0.04);
+  --bg-base:     #052e16;   // blog: #052e16
   --bg-mid:      #051a0e;
-  --bg-top:      #071e12;
+  --bg-top:      #052e16;
 
-  --glass-start:  rgba(6, 46, 25, 0.88);
-  --glass-end:    rgba(5, 30, 18, 0.82);
+  --glass-start:  rgba(5, 46, 22, 0.82);    // blog: rgba(5,46,22,0.80)
+  --glass-end:    rgba(5, 30, 18, 0.78);
   --glass-border: rgba(74, 222, 128, 0.10);
-  --glass-sh-1:   rgba(0, 0, 0, 0.42);
+  --glass-sh-1:   rgba(0, 0, 0, 0.45);
   --glass-inset:  rgba(255, 255, 255, 0.04);
 
   --chrome-bg:     rgba(6, 40, 22, 0.82);
   --chrome-border: rgba(74, 222, 128, 0.08);
 
-  --tl-line:       rgba(74, 222, 128, 0.40);
+  --tl-line:       rgba(74, 222, 128, 0.38);
   --tl-dot:        #4ade80;
-  --tl-ring:       rgba(74, 222, 128, 0.20);
+  --tl-ring:       rgba(74, 222, 128, 0.18);
   --tl-dot-border: #052e16;
 
-  --c-text:       #bbf7d0;
-  --c-heading:    #dcfce7;
-  --c-link:       #4ade80;
-  --c-link-hover: #86efac;
+  --c-text:       #bbf7d0;  // blog: #bbf7d0
+  --c-heading:    #dcfce7;  // blog: #dcfce7
+  --c-link:       #4ade80;  // blog: #4ade80
+  --c-link-hover: #86efac;  // blog: #86efac
 
-  --divider: rgba(74, 222, 128, 0.10);
+  --divider: rgba(74, 222, 128, 0.08);
+  --desc-box-bg: rgba(5, 46, 22, 0.55);
 }
 
 // ==========================================
@@ -628,7 +671,7 @@ html.theme-green.dark-mode {
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.20),
     inset 0 1px 0 rgba(255, 255, 255, 0.18);
-  transition: background 0.35s ease, border-color 0.35s ease;
+  transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .resume-color-swatch {
@@ -748,4 +791,7 @@ html.theme-green.dark-mode {
     -webkit-backdrop-filter: none !important;
     padding: 0 !important;
   }
+
+  // Hide picker in print
+  .resume-color-picker { display: none !important; }
 }
