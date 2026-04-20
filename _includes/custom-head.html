@@ -7,7 +7,9 @@
     if (ct === 'purple') { document.documentElement.classList.add('theme-purple'); }
     else if (ct === 'green')  { document.documentElement.classList.add('theme-green');  }
 
-    // Restore dark/light preference (default: dark, matching _config.yml darkmode: true)
+    // Restore dark/light preference (default: dark).
+    // We set html.dark-mode here (in <head>) so CSS vars are correct before first paint.
+    // body.dark is synced by custom-scripts.html once <body> exists.
     var dm = localStorage.getItem('resume-dark-mode');
     if (dm !== 'light') { document.documentElement.classList.add('dark-mode'); }
   } catch (e) {}
