@@ -1,10 +1,15 @@
-<!-- Color theme no-flicker init: runs before first paint to prevent flash -->
+<!-- Theme + dark-mode no-flicker init: runs before first paint to prevent flash -->
 <script>
 (function () {
   try {
+    // Restore color theme
     var ct = localStorage.getItem('resume-color-theme');
     if (ct === 'purple') { document.documentElement.classList.add('theme-purple'); }
-    else if (ct === 'green') { document.documentElement.classList.add('theme-green'); }
+    else if (ct === 'green')  { document.documentElement.classList.add('theme-green');  }
+
+    // Restore dark/light preference (default: dark, matching _config.yml darkmode: true)
+    var dm = localStorage.getItem('resume-dark-mode');
+    if (dm !== 'light') { document.documentElement.classList.add('dark-mode'); }
   } catch (e) {}
 })();
 </script>

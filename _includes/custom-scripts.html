@@ -1,4 +1,4 @@
-<!-- Color palette picker: floating 3-swatch button, persisted via localStorage -->
+<!-- Color palette picker + dark/light toggle: persisted via localStorage -->
 <script>
 (function () {
   var PALETTES = [
@@ -7,8 +7,32 @@
     { key: 'purple', color: '#c084fc', label: 'Purple' }
   ];
 
+  // SVG icons for the dark/light toggle
+  var SUN_SVG  = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+  var MOON_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+  // ── Helpers ──────────────────────────────────────────────────────────────
+
   function getSavedTheme() {
     try { return localStorage.getItem('resume-color-theme') || 'blue'; } catch (e) { return 'blue'; }
+  }
+
+  function isDark() {
+    return document.documentElement.classList.contains('dark-mode');
+  }
+
+  function setDarkMode(dark) {
+    var html = document.documentElement;
+    if (dark) {
+      html.classList.add('dark-mode');
+      // Keep body.dark in sync so the base theme's own dark-mode rules also apply
+      document.body.classList.add('dark');
+      try { localStorage.setItem('resume-dark-mode', 'dark'); } catch (e) {}
+    } else {
+      html.classList.remove('dark-mode');
+      document.body.classList.remove('dark');
+      try { localStorage.setItem('resume-dark-mode', 'light'); } catch (e) {}
+    }
   }
 
   function applyTheme(key) {
@@ -29,11 +53,21 @@
     }
   }
 
+  function updateToggleBtn(btn) {
+    var dark = isDark();
+    btn.innerHTML = dark ? SUN_SVG : MOON_SVG;
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  // ── Builder ───────────────────────────────────────────────────────────────
+
   function buildPicker() {
     var picker = document.createElement('div');
     picker.className = 'resume-color-picker';
-    picker.setAttribute('aria-label', 'Choose color theme');
+    picker.setAttribute('aria-label', 'Theme controls');
 
+    // Colour swatches (blue / green / purple)
     for (var i = 0; i < PALETTES.length; i++) {
       var p = PALETTES[i];
       var btn = document.createElement('button');
@@ -47,8 +81,33 @@
       picker.appendChild(btn);
     }
 
+    // Thin vertical separator
+    var sep = document.createElement('div');
+    sep.className = 'resume-picker-sep';
+    sep.setAttribute('aria-hidden', 'true');
+    picker.appendChild(sep);
+
+    // Dark / light toggle
+    var toggleBtn = document.createElement('button');
+    toggleBtn.className = 'resume-dark-toggle';
+    updateToggleBtn(toggleBtn);
+    toggleBtn.addEventListener('click', function () {
+      setDarkMode(!isDark());
+      updateToggleBtn(toggleBtn);
+    });
+    picker.appendChild(toggleBtn);
+
     document.body.appendChild(picker);
+
+    // Sync swatches to saved colour theme
     updateSwatches(getSavedTheme());
+
+    // Sync body.dark with the html.dark-mode class that was set by <head> init
+    if (isDark()) {
+      document.body.classList.add('dark');
+    } else {
+      document.body.classList.remove('dark');
+    }
   }
 
   if (document.readyState === 'loading') {

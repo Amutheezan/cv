@@ -57,11 +57,11 @@
 
 // ==========================================
 // CSS CUSTOM PROPERTIES — Dark Mode
-// Applied when body.dark (added by theme JS
-// when prefers-color-scheme: dark is detected)
+// Applied when html.dark-mode (set by no-flicker
+// init in <head> and toggled by the picker JS).
 // ==========================================
 
-body.dark {
+html.dark-mode {
   --bg-color-1:  rgba(37,  99, 235, 0.10);
   --bg-color-2:  rgba(124, 58, 237, 0.08);
   --bg-color-3:  rgba(37,  99, 235, 0.05);
@@ -92,23 +92,24 @@ body.dark {
 
   --divider: rgba(255, 255, 255, 0.07);
 
-  // Inner description box
   --desc-box-bg: rgba(15, 24, 55, 0.50);
 
-  // Override theme's dark-mode defaults
-  background-color: transparent;
-  color: var(--c-text);
+  // Apply dark styles to body and descendants
+  body {
+    background-color: transparent;
+    color: var(--c-text);
 
-  h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
+    h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 
-  a {
-    color: var(--c-link);
-    &:hover { color: var(--c-link-hover); }
-  }
+    a {
+      color: var(--c-link);
+      &:hover { color: var(--c-link-hover); }
+    }
 
-  mark {
-    color: #0d1420;
-    background-color: #e2e8f0;
+    mark {
+      color: #0d1420;
+      background-color: #e2e8f0;
+    }
   }
 }
 
@@ -514,7 +515,7 @@ html.theme-purple {
 }
 
 // PURPLE THEME — Dark mode
-html.theme-purple body.dark {
+html.theme-purple.dark-mode {
   --bg-color-1:  rgba(124, 58, 237, 0.10);
   --bg-color-2:  rgba(109, 40, 217, 0.08);
   --bg-color-3:  rgba(124, 58, 237, 0.05);
@@ -576,7 +577,7 @@ html.theme-green {
 }
 
 // GREEN THEME — Dark mode
-html.theme-green body.dark {
+html.theme-green.dark-mode {
   --bg-color-1:  rgba(22, 163, 74, 0.10);
   --bg-color-2:  rgba(5, 150, 105, 0.08);
   --bg-color-3:  rgba(22, 163, 74, 0.05);
@@ -649,6 +650,48 @@ html.theme-green body.dark {
 
   &:hover:not(.active) {
     opacity: 0.85;
+    transform: scale(1.15);
+  }
+
+  &:focus { outline: none; }
+}
+
+// Thin separator between swatches and toggle
+.resume-picker-sep {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.22);
+  margin: 0 3px;
+  flex-shrink: 0;
+}
+
+// Dark / light mode toggle button
+.resume-dark-toggle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.32);
+  background: transparent;
+  cursor: pointer;
+  padding: 3px;
+  color: rgba(255, 255, 255, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  flex-shrink: 0;
+
+  svg {
+    width: 13px;
+    height: 13px;
+    display: block;
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.68);
     transform: scale(1.15);
   }
 
