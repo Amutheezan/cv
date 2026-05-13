@@ -143,14 +143,13 @@ body {
   margin: 0;
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--c-text);
-  // background-attachment: fixed removed — fixed gradients create visible
-  // horizontal bands at the bottom of the page as the viewport clips them.
-  // Using a solid base colour + a single subtle top-to-bottom gradient instead.
+  // Solid base colour — no gradient banding.
+  // Two subtle radial glows sit in the top-left and bottom-right corners
+  // but fade to the same --bg-base so no horizontal stripes form.
   background-color: var(--bg-base);
   background-image:
-    radial-gradient(ellipse 80% 40% at 20% 0%,   var(--bg-color-1) 0%, transparent 100%),
-    radial-gradient(ellipse 70% 50% at 80% 100%,  var(--bg-color-2) 0%, transparent 100%),
-    linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-base) 60%, var(--bg-top) 100%);
+    radial-gradient(ellipse 70% 35% at 10% 0%,   var(--bg-color-1) 0%, transparent 100%),
+    radial-gradient(ellipse 60% 30% at 90% 100%,  var(--bg-color-2) 0%, transparent 100%);
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
@@ -570,18 +569,20 @@ a, a:hover, a:focus, a:active {
 // ==========================================
 
 .footer-container {
-  margin-top: 1.5rem !important;  // override base theme's 100px gap
-  background: var(--chrome-bg);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border-top: 1px solid var(--chrome-border);
-  box-shadow:
-    0 -2px 16px var(--chrome-sh),
-    inset 0 1px 0 var(--chrome-border);
+  // Collapse the base theme's 100px gap and remove the distinct tinted
+  // background — those two things together created the three-band stripe.
+  // The footer now blends into the page background with just a hairline divider.
+  margin-top: 2rem !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-top: 1px solid var(--divider);
+  box-shadow: none !important;
+  padding-top: 1rem;
   text-align: center;
-  transition: background 0.2s ease-in-out;
+  transition: border-color 0.2s ease-in-out;
 
-  p, span, a { font-size: 0.9em; }
+  p, span, a { font-size: 0.9em; color: var(--c-text); }
 }
 
 // ==========================================
