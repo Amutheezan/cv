@@ -143,13 +143,15 @@ body {
   margin: 0;
   font-family: "Inter", -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   color: var(--c-text);
-  background:
-    radial-gradient(ellipse at 15% 15%, var(--bg-color-1) 0%, transparent 55%),
-    radial-gradient(ellipse at 85% 85%, var(--bg-color-2) 0%, transparent 55%),
-    radial-gradient(ellipse at 70% 20%, var(--bg-color-3) 0%, transparent 40%),
-    linear-gradient(160deg, var(--bg-base) 0%, var(--bg-mid) 40%, var(--bg-top) 70%, var(--bg-base) 100%);
-  background-attachment: fixed;
-  transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
+  // background-attachment: fixed removed — fixed gradients create visible
+  // horizontal bands at the bottom of the page as the viewport clips them.
+  // Using a solid base colour + a single subtle top-to-bottom gradient instead.
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse 80% 40% at 20% 0%,   var(--bg-color-1) 0%, transparent 100%),
+    radial-gradient(ellipse 70% 50% at 80% 100%,  var(--bg-color-2) 0%, transparent 100%),
+    linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-base) 60%, var(--bg-top) 100%);
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 * {
@@ -568,6 +570,7 @@ a, a:hover, a:focus, a:active {
 // ==========================================
 
 .footer-container {
+  margin-top: 1.5rem !important;  // override base theme's 100px gap
   background: var(--chrome-bg);
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
