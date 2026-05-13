@@ -524,6 +524,46 @@ blockquote {
 .list-container { background: transparent; }
 
 // ==========================================
+// BUTTON / SOCIAL ICON FIXES
+// ==========================================
+
+// The base theme's .button--sacnite uses a ::before pseudo-element
+// with an inset box-shadow fill that animates on hover. Override the
+// fill colours so they respect the current theme accent instead of
+// hardcoded #333 / #e6e6e6, and ensure no leftover underlines appear.
+
+.button--sacnite {
+  &::before {
+    box-shadow: inset 0 0 0 35px var(--tl-dot) !important;
+  }
+  &:hover::before {
+    box-shadow: inset 0 0 0 2px var(--tl-dot) !important;
+  }
+  color: var(--bg-base) !important;
+  &:hover { color: var(--tl-dot) !important; }
+
+  // Kill any text underline / URL overlay on hover or focus
+  &, &:hover, &:focus, &:active {
+    text-decoration: none !important;
+  }
+  // Ensure the icon title attribute never renders as visible text
+  i { pointer-events: none; }
+}
+
+// Global: never show underlines or pseudo-content on links
+a, a:hover, a:focus, a:active {
+  text-decoration: none !important;
+  &::after  { content: none !important; display: none !important; }
+  &::before { content: none !important; display: none !important; }
+}
+
+// Re-allow ::before on buttons that need the sacnite fill animation
+.button--sacnite::before {
+  content: '' !important;
+  display: block !important;
+}
+
+// ==========================================
 // FOOTER
 // ==========================================
 
