@@ -59,47 +59,47 @@
 // ==========================================
 // CSS CUSTOM PROPERTIES — Dark Mode (Blue)
 // html[data-theme="dark"] — mirrors blog's data-attribute approach.
-// Blog palette: #0f172a bg, #cbd5e1 text, #e2e8f0 headings, #60a5fa links.
+// Palette: #0d1117 bg (GitHub dark), #c9d1d9 text, #e6edf3 headings, #58a6ff links.
 // ==========================================
 
 html[data-theme="dark"] {
-  --bg-color-1:  rgba(37,  99, 235, 0.08);
-  --bg-color-2:  rgba(124, 58, 237, 0.06);
-  --bg-color-3:  rgba(37,  99, 235, 0.04);
-  --bg-base:     #0f172a;   // blog: slate-900
-  --bg-mid:      #1e293b;   // blog: slate-800
-  --bg-top:      #0f172a;
+  --bg-color-1:  rgba(37,  99, 235, 0.06);
+  --bg-color-2:  rgba(71,  85, 105, 0.05);
+  --bg-color-3:  rgba(37,  99, 235, 0.03);
+  --bg-base:     #0d1117;   // deep slate-950
+  --bg-mid:      #161b22;   // slate-900
+  --bg-top:      #0d1117;
 
-  // Glass cards — blog dark panel: rgba(15,28,65,0.78)
-  --glass-start:  rgba(15, 28, 65, 0.82);
-  --glass-end:    rgba(30, 41, 59, 0.78);
-  --glass-border: rgba(255, 255, 255, 0.10);
-  --glass-sh-1:   rgba(0, 0, 0, 0.45);
-  --glass-sh-2:   rgba(0, 0, 0, 0.30);
-  --glass-inset:  rgba(255, 255, 255, 0.06);
+  // Glass cards — dark, slightly elevated surface
+  --glass-start:  rgba(22, 27, 34, 0.88);
+  --glass-end:    rgba(13, 17, 23, 0.84);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-sh-1:   rgba(0, 0, 0, 0.55);
+  --glass-sh-2:   rgba(0, 0, 0, 0.35);
+  --glass-inset:  rgba(255, 255, 255, 0.04);
 
-  // Header — blog masthead: rgba(10,18,55,0.72)→rgba(28,8,70,0.65)
-  --chrome-bg:     rgba(10, 18, 55, 0.82);
-  --chrome-border: rgba(255, 255, 255, 0.08);
-  --chrome-sh:     rgba(0, 0, 0, 0.40);
+  // Header
+  --chrome-bg:     rgba(13, 17, 23, 0.90);
+  --chrome-border: rgba(255, 255, 255, 0.07);
+  --chrome-sh:     rgba(0, 0, 0, 0.50);
 
-  // Typography
-  --c-text:       #cbd5e1;  // blog: slate-300
-  --c-heading:    #e2e8f0;  // blog: slate-200
-  --c-link:       #60a5fa;  // blog: blue-400
-  --c-link-hover: #93c5fd;  // blog: blue-300
+  // Typography — clean slate tones, good contrast
+  --c-text:       #c9d1d9;  // GitHub dark: primary text
+  --c-heading:    #e6edf3;  // GitHub dark: heading
+  --c-link:       #58a6ff;  // GitHub dark: blue link
+  --c-link-hover: #79c0ff;  // GitHub dark: blue link hover
 
   // Timeline
-  --tl-line:  rgba(96, 165, 250, 0.40);
-  --tl-dot:   #60a5fa;
-  --tl-ring:  rgba(96, 165, 250, 0.18);
-  --tl-dot-border: #0f172a;
+  --tl-line:  rgba(88, 166, 255, 0.35);
+  --tl-dot:   #58a6ff;
+  --tl-ring:  rgba(88, 166, 255, 0.15);
+  --tl-dot-border: #0d1117;
 
   // Dividers
-  --divider: rgba(255, 255, 255, 0.08);
+  --divider: rgba(255, 255, 255, 0.07);
 
-  // Inner description box — blog dark panel
-  --desc-box-bg: rgba(15, 28, 65, 0.55);
+  // Inner description box
+  --desc-box-bg: rgba(22, 27, 34, 0.65);
 
   // Apply dark body/type overrides
   body {
@@ -114,8 +114,8 @@ html[data-theme="dark"] {
     }
 
     mark {
-      color: #0f172a;
-      background-color: #e2e8f0;
+      color: #0d1117;
+      background-color: #e6edf3;
     }
   }
 }
@@ -242,16 +242,6 @@ blockquote {
     border-left-color: rgba(96, 165, 250, 0.65);
   }
 
-  html[data-color-theme="green"] & {
-    background: rgba(22, 163, 74, 0.06);
-    border-left-color: rgba(22, 163, 74, 0.70);
-  }
-
-  html[data-color-theme="green"][data-theme="dark"] & {
-    background: rgba(74, 222, 128, 0.08);
-    border-left-color: rgba(74, 222, 128, 0.55);
-  }
-
   html[data-color-theme="purple"] & {
     background: rgba(124, 58, 237, 0.05);
     border-left-color: rgba(124, 58, 237, 0.60);
@@ -260,6 +250,36 @@ blockquote {
   html[data-color-theme="purple"][data-theme="dark"] & {
     background: rgba(196, 181, 253, 0.08);
     border-left-color: rgba(196, 181, 253, 0.55);
+  }
+
+  html[data-color-theme="indigo"] & {
+    background: rgba(99, 102, 241, 0.06);
+    border-left-color: rgba(99, 102, 241, 0.65);
+  }
+
+  html[data-color-theme="indigo"][data-theme="dark"] & {
+    background: rgba(165, 180, 252, 0.08);
+    border-left-color: rgba(165, 180, 252, 0.55);
+  }
+
+  html[data-color-theme="magenta"] & {
+    background: rgba(217, 70, 239, 0.05);
+    border-left-color: rgba(217, 70, 239, 0.60);
+  }
+
+  html[data-color-theme="magenta"][data-theme="dark"] & {
+    background: rgba(240, 171, 252, 0.08);
+    border-left-color: rgba(240, 171, 252, 0.55);
+  }
+
+  html[data-color-theme="cyan"] & {
+    background: rgba(6, 182, 212, 0.06);
+    border-left-color: rgba(6, 182, 212, 0.65);
+  }
+
+  html[data-color-theme="cyan"][data-theme="dark"] & {
+    background: rgba(103, 232, 249, 0.08);
+    border-left-color: rgba(103, 232, 249, 0.55);
   }
 }
 
@@ -587,67 +607,192 @@ html[data-color-theme="purple"][data-theme="dark"] {
 }
 
 // ==========================================
-// GREEN THEME — Light mode
-// html[data-color-theme="green"] — exact colours from blog's _color-themes.scss.
+// INDIGO THEME — Light mode
 // ==========================================
 
-html[data-color-theme="green"] {
-  --bg-color-1:  rgba(21, 128, 61, 0.18);
-  --bg-color-2:  rgba(5, 150, 105, 0.15);
-  --bg-color-3:  rgba(21, 128, 61, 0.10);
-  --bg-base:     #f0fdf4;   // blog: #f0fdf4
-  --bg-mid:      #dcfce7;
-  --bg-top:      #ecfdf5;
+html[data-color-theme="indigo"] {
+  --bg-color-1:  rgba(99, 102, 241, 0.18);
+  --bg-color-2:  rgba(79,  70, 229, 0.14);
+  --bg-color-3:  rgba(99, 102, 241, 0.09);
+  --bg-base:     #eef2ff;   // indigo-50
+  --bg-mid:      #e0e7ff;   // indigo-100
+  --bg-top:      #eef2ff;
 
-  --glass-start:  rgba(240, 253, 244, 0.82);  // blog: rgba(240,253,244,0.88)
-  --glass-end:    rgba(220, 252, 231, 0.72);
-  --glass-border: rgba(34, 197, 94, 0.18);    // blog: rgba(34,197,94,0.18)
-  --glass-sh-1:   rgba(16, 120, 60, 0.08);
+  --glass-start:  rgba(238, 242, 255, 0.84);
+  --glass-end:    rgba(224, 231, 255, 0.74);
+  --glass-border: rgba(99, 102, 241, 0.18);
+  --glass-sh-1:   rgba(79, 70, 229, 0.08);
 
-  --chrome-bg:     rgba(21, 128, 61, 0.22);
-  --chrome-border: rgba(255, 255, 255, 0.20);
+  --chrome-bg:     rgba(79, 70, 229, 0.20);
+  --chrome-border: rgba(255, 255, 255, 0.22);
 
-  --tl-line:  rgba(22, 163, 74, 0.40);
-  --tl-dot:   #16a34a;
-  --tl-ring:  rgba(22, 163, 74, 0.18);
+  --tl-line:  rgba(99, 102, 241, 0.40);
+  --tl-dot:   #6366f1;
+  --tl-ring:  rgba(99, 102, 241, 0.18);
 
-  --c-link:       #15803d;  // blog: #15803d
-  --c-link-hover: #166534;  // blog: #166534
-  --c-heading:    #14532d;  // blog: #14532d
+  --c-link:       #4f46e5;
+  --c-link-hover: #4338ca;
+  --c-heading:    #312e81;
 
-  --divider: rgba(22, 163, 74, 0.10);
+  --divider: rgba(99, 102, 241, 0.10);
 }
 
-// GREEN THEME — Dark mode
-html[data-color-theme="green"][data-theme="dark"] {
-  --bg-color-1:  rgba(22, 163, 74, 0.08);
-  --bg-color-2:  rgba(5, 150, 105, 0.06);
-  --bg-color-3:  rgba(22, 163, 74, 0.04);
-  --bg-base:     #052e16;   // blog: #052e16
-  --bg-mid:      #051a0e;
-  --bg-top:      #052e16;
+// INDIGO THEME — Dark mode
+html[data-color-theme="indigo"][data-theme="dark"] {
+  --bg-color-1:  rgba(99, 102, 241, 0.08);
+  --bg-color-2:  rgba(79,  70, 229, 0.05);
+  --bg-color-3:  rgba(99, 102, 241, 0.03);
+  --bg-base:     #0e0e2c;
+  --bg-mid:      #16163a;
+  --bg-top:      #0e0e2c;
 
-  --glass-start:  rgba(5, 46, 22, 0.82);    // blog: rgba(5,46,22,0.80)
-  --glass-end:    rgba(5, 30, 18, 0.78);
-  --glass-border: rgba(74, 222, 128, 0.10);
-  --glass-sh-1:   rgba(0, 0, 0, 0.45);
+  --glass-start:  rgba(14, 14, 44, 0.88);
+  --glass-end:    rgba(22, 22, 58, 0.84);
+  --glass-border: rgba(165, 180, 252, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.50);
   --glass-inset:  rgba(255, 255, 255, 0.04);
 
-  --chrome-bg:     rgba(6, 40, 22, 0.82);
-  --chrome-border: rgba(74, 222, 128, 0.08);
+  --chrome-bg:     rgba(10, 10, 36, 0.90);
+  --chrome-border: rgba(165, 180, 252, 0.08);
 
-  --tl-line:       rgba(74, 222, 128, 0.38);
-  --tl-dot:        #4ade80;
-  --tl-ring:       rgba(74, 222, 128, 0.18);
-  --tl-dot-border: #052e16;
+  --tl-line:       rgba(165, 180, 252, 0.38);
+  --tl-dot:        #a5b4fc;
+  --tl-ring:       rgba(165, 180, 252, 0.15);
+  --tl-dot-border: #0e0e2c;
 
-  --c-text:       #bbf7d0;  // blog: #bbf7d0
-  --c-heading:    #dcfce7;  // blog: #dcfce7
-  --c-link:       #4ade80;  // blog: #4ade80
-  --c-link-hover: #86efac;  // blog: #86efac
+  --c-text:       #c7d2fe;
+  --c-heading:    #e0e7ff;
+  --c-link:       #a5b4fc;
+  --c-link-hover: #c7d2fe;
 
-  --divider: rgba(74, 222, 128, 0.08);
-  --desc-box-bg: rgba(5, 46, 22, 0.55);
+  --divider: rgba(165, 180, 252, 0.08);
+  --desc-box-bg: rgba(14, 14, 44, 0.65);
+}
+
+// ==========================================
+// MAGENTA THEME — Light mode
+// ==========================================
+
+html[data-color-theme="magenta"] {
+  --bg-color-1:  rgba(217, 70, 239, 0.16);
+  --bg-color-2:  rgba(192, 38, 211, 0.12);
+  --bg-color-3:  rgba(217, 70, 239, 0.08);
+  --bg-base:     #fdf4ff;   // fuchsia-50
+  --bg-mid:      #fae8ff;   // fuchsia-100
+  --bg-top:      #fdf4ff;
+
+  --glass-start:  rgba(253, 244, 255, 0.84);
+  --glass-end:    rgba(250, 232, 255, 0.74);
+  --glass-border: rgba(217, 70, 239, 0.18);
+  --glass-sh-1:   rgba(192, 38, 211, 0.08);
+
+  --chrome-bg:     rgba(192, 38, 211, 0.20);
+  --chrome-border: rgba(255, 255, 255, 0.22);
+
+  --tl-line:  rgba(217, 70, 239, 0.40);
+  --tl-dot:   #d946ef;
+  --tl-ring:  rgba(217, 70, 239, 0.18);
+
+  --c-link:       #c026d3;
+  --c-link-hover: #a21caf;
+  --c-heading:    #701a75;
+
+  --divider: rgba(217, 70, 239, 0.10);
+}
+
+// MAGENTA THEME — Dark mode
+html[data-color-theme="magenta"][data-theme="dark"] {
+  --bg-color-1:  rgba(217, 70, 239, 0.07);
+  --bg-color-2:  rgba(192, 38, 211, 0.05);
+  --bg-color-3:  rgba(217, 70, 239, 0.03);
+  --bg-base:     #1a0520;
+  --bg-mid:      #230a2c;
+  --bg-top:      #1a0520;
+
+  --glass-start:  rgba(26, 5, 32, 0.88);
+  --glass-end:    rgba(35, 10, 44, 0.84);
+  --glass-border: rgba(240, 171, 252, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.50);
+  --glass-inset:  rgba(255, 255, 255, 0.04);
+
+  --chrome-bg:     rgba(20, 4, 26, 0.90);
+  --chrome-border: rgba(240, 171, 252, 0.08);
+
+  --tl-line:       rgba(240, 171, 252, 0.38);
+  --tl-dot:        #f0abfc;
+  --tl-ring:       rgba(240, 171, 252, 0.15);
+  --tl-dot-border: #1a0520;
+
+  --c-text:       #f5d0fe;
+  --c-heading:    #fae8ff;
+  --c-link:       #f0abfc;
+  --c-link-hover: #f5d0fe;
+
+  --divider: rgba(240, 171, 252, 0.08);
+  --desc-box-bg: rgba(26, 5, 32, 0.65);
+}
+
+// ==========================================
+// CYAN THEME — Light mode
+// ==========================================
+
+html[data-color-theme="cyan"] {
+  --bg-color-1:  rgba(6, 182, 212, 0.16);
+  --bg-color-2:  rgba(8, 145, 178, 0.12);
+  --bg-color-3:  rgba(6, 182, 212, 0.08);
+  --bg-base:     #ecfeff;   // cyan-50
+  --bg-mid:      #cffafe;   // cyan-100
+  --bg-top:      #ecfeff;
+
+  --glass-start:  rgba(236, 254, 255, 0.84);
+  --glass-end:    rgba(207, 250, 254, 0.74);
+  --glass-border: rgba(6, 182, 212, 0.18);
+  --glass-sh-1:   rgba(8, 145, 178, 0.08);
+
+  --chrome-bg:     rgba(8, 145, 178, 0.20);
+  --chrome-border: rgba(255, 255, 255, 0.22);
+
+  --tl-line:  rgba(6, 182, 212, 0.40);
+  --tl-dot:   #06b6d4;
+  --tl-ring:  rgba(6, 182, 212, 0.18);
+
+  --c-link:       #0891b2;
+  --c-link-hover: #0e7490;
+  --c-heading:    #164e63;
+
+  --divider: rgba(6, 182, 212, 0.10);
+}
+
+// CYAN THEME — Dark mode
+html[data-color-theme="cyan"][data-theme="dark"] {
+  --bg-color-1:  rgba(6, 182, 212, 0.07);
+  --bg-color-2:  rgba(8, 145, 178, 0.05);
+  --bg-color-3:  rgba(6, 182, 212, 0.03);
+  --bg-base:     #03131a;
+  --bg-mid:      #071e28;
+  --bg-top:      #03131a;
+
+  --glass-start:  rgba(3, 19, 26, 0.88);
+  --glass-end:    rgba(7, 30, 40, 0.84);
+  --glass-border: rgba(103, 232, 249, 0.10);
+  --glass-sh-1:   rgba(0, 0, 0, 0.50);
+  --glass-inset:  rgba(255, 255, 255, 0.04);
+
+  --chrome-bg:     rgba(2, 14, 20, 0.90);
+  --chrome-border: rgba(103, 232, 249, 0.08);
+
+  --tl-line:       rgba(103, 232, 249, 0.38);
+  --tl-dot:        #67e8f9;
+  --tl-ring:       rgba(103, 232, 249, 0.15);
+  --tl-dot-border: #03131a;
+
+  --c-text:       #a5f3fc;
+  --c-heading:    #cffafe;
+  --c-link:       #67e8f9;
+  --c-link-hover: #a5f3fc;
+
+  --divider: rgba(103, 232, 249, 0.08);
+  --desc-box-bg: rgba(3, 19, 26, 0.65);
 }
 
 // ==========================================
