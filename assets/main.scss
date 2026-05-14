@@ -16,13 +16,13 @@
 // ==========================================
 
 :root {
-  // Page background — softer slate tones matching blog's #f1f5f9 base
-  --bg-color-1:  rgba(37, 99, 235, 0.14);
-  --bg-color-2:  rgba(124, 58, 237, 0.10);
-  --bg-color-3:  rgba(37, 99, 235, 0.07);
-  --bg-base:     #f1f5f9;   // blog: slate-100
-  --bg-mid:      #e2e8f0;   // slate-200
-  --bg-top:      #f8fafc;   // slate-50
+  // Page background — blue tones
+  --bg-color-1:  rgba(37, 99, 235, 0.22);
+  --bg-color-2:  rgba(37, 99, 235, 0.14);
+  --bg-color-3:  rgba(37, 99, 235, 0.08);
+  --bg-base:     #dbeafe;   // blue-100
+  --bg-mid:      #bfdbfe;   // blue-200
+  --bg-top:      #dbeafe;
 
   // Glass cards — blog: rgba(255,255,255,0.68) / blur 24px
   --glass-start:  rgba(255, 255, 255, 0.72);
@@ -592,12 +592,12 @@ a, a:hover, a:focus, a:active {
 // ==========================================
 
 html[data-color-theme="purple"] {
-  --bg-color-1:  rgba(124, 58, 237, 0.18);
-  --bg-color-2:  rgba(109, 40, 217, 0.15);
-  --bg-color-3:  rgba(124, 58, 237, 0.10);
-  --bg-base:     #faf5ff;   // blog: faf5ff
-  --bg-mid:      #f3e8ff;
-  --bg-top:      #faf5ff;
+  --bg-color-1:  rgba(124, 58, 237, 0.28);
+  --bg-color-2:  rgba(109, 40, 217, 0.20);
+  --bg-color-3:  rgba(124, 58, 237, 0.14);
+  --bg-base:     #ede9fe;   // violet-100
+  --bg-mid:      #ddd6fe;   // violet-200
+  --bg-top:      #ede9fe;
 
   --glass-start:  rgba(250, 245, 255, 0.82);  // blog: rgba(250,245,255,0.88)
   --glass-end:    rgba(237, 232, 255, 0.72);
@@ -781,12 +781,12 @@ html[data-color-theme="magenta"][data-theme="dark"] {
 // ==========================================
 
 html[data-color-theme="cyan"] {
-  --bg-color-1:  rgba(6, 182, 212, 0.16);
-  --bg-color-2:  rgba(8, 145, 178, 0.12);
-  --bg-color-3:  rgba(6, 182, 212, 0.08);
-  --bg-base:     #ecfeff;   // cyan-50
-  --bg-mid:      #cffafe;   // cyan-100
-  --bg-top:      #ecfeff;
+  --bg-color-1:  rgba(6, 182, 212, 0.28);
+  --bg-color-2:  rgba(8, 145, 178, 0.20);
+  --bg-color-3:  rgba(6, 182, 212, 0.14);
+  --bg-base:     #cffafe;   // cyan-100
+  --bg-mid:      #a5f3fc;   // cyan-200
+  --bg-top:      #cffafe;
 
   --glass-start:  rgba(236, 254, 255, 0.84);
   --glass-end:    rgba(207, 250, 254, 0.74);

@@ -3,9 +3,15 @@
 <script>
 (function () {
   try {
-    // Restore colour theme via data-color-theme attribute (matches blog)
+    // Restore colour theme — purge any legacy values (green, indigo, magenta)
+    // so stale localStorage entries don't bleed old tints into the page.
+    var VALID_THEMES = { purple: 1, cyan: 1 };
     var ct = localStorage.getItem('resume-color-theme');
-    if (ct === 'purple' || ct === 'cyan') {
+    if (ct && !VALID_THEMES[ct]) {
+      localStorage.removeItem('resume-color-theme');
+      ct = null;
+    }
+    if (ct) {
       document.documentElement.setAttribute('data-color-theme', ct);
     }
 
